@@ -41,6 +41,7 @@
     </v-main>
   </v-app>
 
+  <router-view></router-view>
 </template>
 
 <script>

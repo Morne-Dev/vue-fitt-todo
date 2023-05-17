@@ -1,8 +1,16 @@
 import { createApp } from 'vue'
+import {createRouter} from 'vue-router'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
-import router from '@/router'
+
+const router = createRouter({
+history: createWebHistory(),
+routes: [],
+})
+
+
+
 
 loadFonts()
 

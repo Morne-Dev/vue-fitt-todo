@@ -40,7 +40,9 @@
       <!--  -->
     </v-main>
   </v-app>
-
+  <router-link="/">Home</router-link>
+  <router-link="/About">About</router-link>
+  <router-view></router-view>
 </template>
 
 <script>

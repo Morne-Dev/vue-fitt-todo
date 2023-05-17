@@ -40,7 +40,6 @@
       <!--  -->
     </v-main>
   </v-app>
-
 </template>
 
 <script>
