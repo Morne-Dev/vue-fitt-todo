@@ -38,8 +38,8 @@ const store = createStore({
             let task = state.tasks.filter(task => task.id === id)[0]
             task.done = !task.done
         },
-        deleteTask(state, id) {
-            state.tasks = state.tasks.filter( task => task.id !== id)
+        deleteTask(id) {
+            this.tasks = this.tasks.filter( task => task.id !== id)
         }
     },
     actions:{
