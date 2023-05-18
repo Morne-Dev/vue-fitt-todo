@@ -56,14 +56,13 @@
 
     <div
     v-else
-    class="no-tasks"
     >
       <v-icon
-      size="60"
-      color="green"
+      large
+      color="green darken-3"
       
       >
-      mdi-check
+
       </v-icon>
       <div class="text-h5 text-blue">No Tasks</div>
     </div>
@@ -119,12 +118,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-  .no-tasks
-    position: absolute
-    left:50%
-    top: 50%
-    transform: translate(-50%, -50%)
-    opacity: 0.5
-</style>

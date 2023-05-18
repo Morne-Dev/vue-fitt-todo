@@ -53,18 +53,9 @@
         <v-divider></v-divider>
       </div>
     </v-list>
-
     <div
     v-else
-    class="no-tasks"
     >
-      <v-icon
-      size="60"
-      color="green"
-      
-      >
-      mdi-check
-      </v-icon>
       <div class="text-h5 text-blue">No Tasks</div>
     </div>
   </div>
@@ -119,12 +110,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-  .no-tasks
-    position: absolute
-    left:50%
-    top: 50%
-    transform: translate(-50%, -50%)
-    opacity: 0.5
-</style>
