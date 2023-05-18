@@ -12,11 +12,7 @@
         clearable
       >
       </v-text-field>
-    <v-list 
-    v-if="tasks.length"
-    select-strategy="classic" 
-    class="pt-0"
-    >
+        <v-list lines="three" select-strategy="classic" class="pt-0">
       <v-list-subheader>Todo's</v-list-subheader>
       <div
         v-for="task in tasks"
@@ -53,12 +49,7 @@
         <v-divider></v-divider>
       </div>
     </v-list>
-    <div
-    v-else
-    >
-    No Tasks
     </div>
-  </div>
 
 </template>
 

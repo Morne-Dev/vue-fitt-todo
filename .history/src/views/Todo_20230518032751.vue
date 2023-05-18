@@ -53,10 +53,8 @@
         <v-divider></v-divider>
       </div>
     </v-list>
-    <div
-    v-else
-    >
-    No Tasks
+    <div>
+
     </div>
   </div>
 
