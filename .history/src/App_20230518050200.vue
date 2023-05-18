@@ -66,6 +66,7 @@
     <v-main>
       <router-view></router-view>
     </v-main>
+    <div>{{ this.$store.getters.appName }}</div>
   </v-app>
 </template>
 

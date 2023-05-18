@@ -7,4 +7,8 @@ import store from './store'
 
 loadFonts()
 
-createApp(App).use(vuetify).use(router).use(store).mount('#app')
+const app = createApp(App)
+  app.use(vuetify)
+  app.use(router)
+  app.use(store)
+  app.mount('#app')

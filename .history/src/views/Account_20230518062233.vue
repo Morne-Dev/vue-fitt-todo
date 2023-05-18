@@ -4,7 +4,12 @@
             My Account: {{ name }} 
         </h1>
         <p>Logged in as {{ name }} </p>
-        <input v-model="newName" type="text"/>
+        <input 
+            v-model="newName" 
+            type="text" 
+            label="Outlined"
+            outlined
+            dense/>
         <button @click="saveName">Submit</button>
         <P>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A dolor beatae repellendus doloribus aut deleniti ducimus reprehenderit consequatur exercitationem cupiditate? Tenetur dolore, non iusto nemo aspernatur unde maiores nam nulla!</P>
     </div>

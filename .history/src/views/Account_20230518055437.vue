@@ -26,6 +26,6 @@ const newName = ref('')
 function saveName() {
     store.dispatch('saveName', newName.value)
     newName.value = ''
-    router.push('/Newuser')
+    router.push('/newuser')
 }
 </script>

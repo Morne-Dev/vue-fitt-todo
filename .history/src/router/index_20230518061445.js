@@ -3,7 +3,7 @@ import Todo from '@/views/Todo.vue'
 import Home from '@/views/Home.vue'
 import Account from '@/views/Account.vue'
 import Team from '@/views/Team.vue'
-import Newuser from '@/components/Newuser.vue'
+import Newuser from '@Newuser.vue'
 
 const routes = [
     {path: '/Todo', name: 'Todo', component: Todo},
