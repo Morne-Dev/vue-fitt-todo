@@ -59,9 +59,8 @@
     class="no-tasks"
     >
       <v-icon
-      size="100"
+      size="60"
       color="green"
-      
       
       >
       mdi-check

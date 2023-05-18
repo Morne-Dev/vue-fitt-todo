@@ -59,14 +59,13 @@
     class="no-tasks"
     >
       <v-icon
-      size="100"
+      size="60"
       color="green"
-      
       
       >
       mdi-check
       </v-icon>
-      <div class="text-h5 text-blue">No Tasks</div>
+      <div class="text-h5 text-blue center">No Tasks</div>
     </div>
   </div>
 
