@@ -1,100 +1,30 @@
 <template>
-    <div class="Todo">
-      <v-text-field
-        v-model="newTaskTitle"
-        @click:append="addTask"
-        @keyup.enter="addTask"
-        class="pa-3"
-        label="Add Task"
-        append-inner-icon="mdi-plus"
-        variant="outlined"
-        hide-details
-        clearable
-      >
-      </v-text-field>
-    <v-list 
-    v-if="$store.state.tasks.length"
-    select-strategy="classic" 
-    class="pt-0"
-    >
-      <v-list-subheader>Todo's</v-list-subheader>
-      <div
-        v-for="task in $store.state.tasks"
-        :key="task.id"
-      >
-        <v-list-item 
-        @click="$store.commit('doneTask', task.id)" 
-        :class="{ 'blue lighten-5' : task.done }"
-        >
-          <template v-slot:prepend>
-            <v-list-item-action start>
-                <v-checkbox-btn 
-                :model-value="task.done"
-                ></v-checkbox-btn>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title 
-            :class="{'text-decoration-line-through' : task.done}"
-            >
-            {{task.title}}
-            </v-list-item-title>
-            <v-list-item-subtitle>{{task.description}}</v-list-item-subtitle>
-            </v-list-item-content>
-          </template>
-            <v-row class=" justify-end">
-                <v-btn 
-                @click.stop="$store.commit('deleteTask', task.id)"
-                icon
-                >
-                  <v-icon color="blue lighten-5" >mdi-delete</v-icon>
-                </v-btn>
-              </v-row> 
-        </v-list-item>
-        <v-divider></v-divider>
-      </div>
-    </v-list>
-
-    <div
-    v-else
-    class="no-tasks"
-    >
-      <v-icon
-      size="100"
-      color="green"
-      
-      
-      >
-      mdi-check
-      </v-icon>
-      <div class="text-h5 text-blue">No Tasks</div>
-    </div>
+  <div class="Todo">
+    <field-add-task />
+    <list-tasks v-if="tasks.length" />
+    <no-tasks v-else />
   </div>
-
 </template>
 
 <script>
+import FieldAddTask from '@/components/Todo/FieldAddTask.vue';
+import ListTasks from '@/components/Todo/ListTasks.vue';
+import NoTasks from '@/components/Todo/NoTasks.vue';
+
 export default {
   name: 'Todo',
-  data() {
-    return {
-        newTaskTitle: '',
-    
-      }
-    },
-    methods: {
-    addTask() {
-      this.$store.commit('addTask', this.newTaskTitle)
-      this.newTaskTitle = ''
-    },
+  components: {
+    FieldAddTask,
+    ListTasks,
+    NoTasks
+  },
+  computed: {
+    tasks() {
+      return this.$store.state.tasks;
+    }
   }
 }
 </script>
 
 <style lang="sass">
-  .no-tasks
-    position: absolute
-    left: 50%
-    top: 50%
-    transform: translate(-50%, -50%)
-    opacity: 0.5
 </style>
