@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
+    "date-fns": "^2.30.0",
     "roboto-fontface": "*",
     "vue": "^3.2.47",
     "vue-router": "^4.2.0",

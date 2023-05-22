@@ -9,18 +9,21 @@ export default createStore({
         title: 'BuyBread',
         description: 'good stuff',
         done: true,
+        dueDate: '2020-10-15'
       },
       {
         id: 2,
         title: 'blank',
         description: 'good stuff',
         done: true,
+        dueDate: '2020-10-16'
       },
       {
         id: 3,
         title: 'BuyBread',
         description: 'good stuff',
         done: false,
+        dueDate: null
       },
     ],
     snackbar: {
@@ -34,6 +37,7 @@ export default createStore({
         id: Date.now(),
         title: newTaskTitle,
         done: false,
+        dueDate: null
       }
       state.tasks.push(newTask)
     },
@@ -71,6 +75,10 @@ export default createStore({
     deleteTask({ commit }, id) {
       commit('deleteTask', id)
       commit('showSnackbar', 'Task Deleted!')
+    },
+    updateTaskTitle({ commit }, payload) {
+      commit('updateTaskTitle', payload)
+      commit('showSnackbar', 'Task updated!')
     }
   },
   getters: {},
