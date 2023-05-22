@@ -1,5 +1,6 @@
 <template>
-<v-menu>
+    <div>
+        <v-menu>
             <template v-slot:activator="{ props }">
               <v-btn color="blue-lighten-4"  icon="mdi-dots-vertical" v-bind="props"></v-btn>
             </template>
@@ -17,17 +18,28 @@
               </v-list-item>
             </v-list>
           </v-menu>
+    </div>
+          <DialogEdit v-if="dialogs.edit" @close="dialogs.edit = false" :task="task"/>
+          <DialogDelete v-if="dialogs.delete" @close="dialogs.delete = false" :task="task"/>
 </template>
 
 <script>
+import DialogEdit from '@/components/Todo/Dialogs/DialogEdit.vue';
+import DialogDelete from '@/components/Todo/Dialogs/DialogDelete.vue';
+
 export default {
+    props: ['task'],
     data: () => ({
+      dialogs: {
+        edit: false,
+        delete: false
+      },
       items: [
         {
             title: 'Edit',
             icon: 'mdi-pencil',
             click() {
-                console.log('edit')
+                this.dialogs.edit = true
             }
         },
         {
@@ -41,15 +53,19 @@ export default {
             title: 'Delete',
             icon: 'mdi-delete',
             click() {
-                console.log('delete')
+                this.dialogs.delete = true
             }
         },
       ],
     }),
     methods: {
         handleClick(index) {
-            this.items[index].click()
+            this.items[index].click.call(this)
         }
+    },
+    components: {
+        DialogEdit,
+        DialogDelete
     }
 }
 </script>

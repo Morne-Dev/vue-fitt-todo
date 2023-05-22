@@ -13,29 +13,19 @@
         </v-list-item-content>
       </template>
       <v-row class="justify-end">
-        <TaskMenu />
+        <TaskMenu :task="task" />
       </v-row>
     </v-list-item>
     <v-divider></v-divider>
-    <DialogDelete v-if="dialogs.delete" @close="dialogs.delete = false" :task="task"/>
   </div>
 </template>
 
 <script>
-import DialogDelete from '@/components/Todo/Dialogs/DialogDelete.vue';
 import TaskMenu from '@/components/Todo/TaskMenu.vue';
 
 export default {
   props: ['task'],
-  data() {
-    return {
-      dialogs: {
-        delete: false
-      }
-    }
-  },
   components: {
-    DialogDelete,
     TaskMenu
   },
   methods: {
