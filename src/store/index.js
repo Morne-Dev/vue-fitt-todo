@@ -23,6 +23,10 @@ export default createStore({
         done: false,
       },
     ],
+    snackbar: {
+      show: false,
+      text: ''
+    }
   },
   mutations: {
     addTask(state, newTaskTitle) {
@@ -30,20 +34,41 @@ export default createStore({
         id: Date.now(),
         title: newTaskTitle,
         done: false,
-      };
-      state.tasks.push(newTask);
-    },
-    doneTask(state, taskId) {
-      const task = state.tasks.find((task) => task.id === taskId);
-      if (task) {
-        task.done = !task.done;
       }
+      state.tasks.push(newTask)
     },
-    deleteTask(state, taskId) {
-      state.tasks = state.tasks.filter((task) => task.id !== taskId);
+    doneTask(state, id) {
+      let task = state.tasks.filter(task => task.id === id)[0]
+        task.done = !task.done;
+      },
+    deleteTask(state, id) {
+      state.tasks = state.tasks.filter(task => task.id !== id);
     },
+    showSnackbar(state, text) {
+      let timeout = 0
+      if (state.snackbar.show) {
+        state.snackbar.show = false
+        timeout = 300
+      }
+      setTimeout(() => {
+        state.snackbar.show = true
+        state.snackbar.text = text
+      },timeout)
+    }
   },
-  actions: {},
+  hideSnackbar(state) {
+    state.snackbar.show = false
+  },
+  actions: {
+    addTask({ commit }, newTaskTitle) {
+      commit('addTask', newTaskTitle)
+      commit('showSnackbar', 'Task Added!')
+    },
+    deleteTask({ commit }, id) {
+      commit('deleteTask', id)
+      commit('showSnackbar', 'Task Deleted!')
+    }
+  },
   getters: {},
   modules: {
     user,
