@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mdi/font": "5.9.55",
+    "@mdi/font": "^5.9.55",
     "date-fns": "^2.30.0",
     "roboto-fontface": "*",
     "vue": "^3.2.47",
@@ -19,7 +19,9 @@
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
     "@vitejs/plugin-vue": "^4.1.0",
+    "material-design-icons-iconfont": "^6.7.0",
     "sass": "^1.62.1",
     "vite": "^4.3.2",
     "vite-plugin-vuetify": "^1.0.0-alpha.12",

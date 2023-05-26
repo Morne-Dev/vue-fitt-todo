@@ -1,6 +1,7 @@
 import { createStore } from 'vuex';
 import user from '../store/modules/user';
 
+
 export default createStore({
   state: {
     tasks: [
@@ -52,6 +53,10 @@ export default createStore({
       let task = state.tasks.filter(task => task.id === payload.id)[0]
       task.title = payload.title
     },
+    updateTaskDueDate(state, payload) {
+      let task = state.tasks.filter(task => task.id === payload.id)[0]
+      task.dueDate = payload.dueDate
+    },
     showSnackbar(state, text) {
       let timeout = 0
       if (state.snackbar.show) {
@@ -79,6 +84,10 @@ export default createStore({
     updateTaskTitle({ commit }, payload) {
       commit('updateTaskTitle', payload)
       commit('showSnackbar', 'Task updated!')
+    },
+    updateTaskDueDate({ commit }, payload) {
+      commit('updateTaskDueDate', payload)
+      commit('showSnackbar', 'Due Date Updated!')
     }
   },
   getters: {},
