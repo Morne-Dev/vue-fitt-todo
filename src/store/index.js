@@ -1,7 +1,6 @@
 import { createStore } from 'vuex';
 import user from '../store/modules/user';
 
-
 export default createStore({
   state: {
     tasks: [
@@ -44,8 +43,8 @@ export default createStore({
     },
     doneTask(state, id) {
       let task = state.tasks.filter(task => task.id === id)[0]
-        task.done = !task.done;
-      },
+      task.done = !task.done;
+    },
     deleteTask(state, id) {
       state.tasks = state.tasks.filter(task => task.id !== id);
     },
@@ -66,11 +65,11 @@ export default createStore({
       setTimeout(() => {
         state.snackbar.show = true
         state.snackbar.text = text
-      },timeout)
-    }
-  },
-  hideSnackbar(state) {
-    state.snackbar.show = false
+      }, timeout)
+    },
+    hideSnackbar(state) {
+      state.snackbar.show = false
+    },
   },
   actions: {
     addTask({ commit }, newTaskTitle) {
