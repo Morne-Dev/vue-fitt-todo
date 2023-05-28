@@ -6,7 +6,7 @@
     persistent
     width="290px"
   >
-    <v-date-picker
+    <v-date-picker 
       v-model="date"
       scrollable
     >
